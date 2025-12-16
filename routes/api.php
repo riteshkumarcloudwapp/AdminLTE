@@ -19,6 +19,7 @@ use App\Http\Controllers\API\TermsAndConditionController;
 |
 */
 
+
 Route::post('/user/login', [AuthController::class, 'loginUser']);
 
 // protected routes

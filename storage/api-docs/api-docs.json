@@ -1,0 +1,265 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Laravel API",
+        "description": "API documentation for Laravel project",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/user/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login User",
+                "operationId": "f16ee5faa3514e8119edc32275e90306",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "admin@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get categories list",
+                "description": "Fetch paginated categories",
+                "operationId": "7d03c750ab4c85a0610098e96021b080",
+                "responses": {
+                    "200": {
+                        "description": "Categories fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Electronics"
+                                                    },
+                                                    "image": {
+                                                        "type": "string",
+                                                        "example": "electronics.jpg"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/privacy-policy": {
+            "get": {
+                "tags": [
+                    "CMS"
+                ],
+                "summary": "Get Privacy Policy",
+                "description": "Fetch application privacy policy",
+                "operationId": "d89b65ec0b4051f4b426b4e5a8ff4353",
+                "responses": {
+                    "200": {
+                        "description": "Privacy policy fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Privacy Policy"
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "example": "Your privacy is important to us..."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get products list",
+                "description": "Fetch paginated products",
+                "operationId": "9ceebe24ccf6943f8c36bc1b1a72816e",
+                "responses": {
+                    "200": {
+                        "description": "Products fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "Gaming Laptop"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "High performance laptop"
+                                                    },
+                                                    "actual_price": {
+                                                        "type": "number",
+                                                        "example": 75000
+                                                    },
+                                                    "discount_price": {
+                                                        "type": "number",
+                                                        "example": 69999
+                                                    },
+                                                    "image": {
+                                                        "type": "string",
+                                                        "example": "laptop.jpg"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/terms-and-conditions": {
+            "get": {
+                "tags": [
+                    "CMS"
+                ],
+                "summary": "Get Terms and Conditions",
+                "description": "Fetch application terms and conditions",
+                "operationId": "68f51457c533b0382b1db3de2899ca99",
+                "responses": {
+                    "200": {
+                        "description": "Terms and conditions fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Terms and Conditions"
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "example": "By using this app you agree..."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Categories",
+            "description": "Categories"
+        },
+        {
+            "name": "CMS",
+            "description": "CMS"
+        },
+        {
+            "name": "Products",
+            "description": "Products"
+        }
+    ]
+}
